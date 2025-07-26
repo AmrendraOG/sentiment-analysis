@@ -2,9 +2,6 @@ import string
 from flask import Flask, request, jsonify, render_template
 from collections import Counter
 import nltk
-from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 def safe_nltk_download():
     try:
@@ -23,6 +20,11 @@ def safe_nltk_download():
         nltk.download('vader_lexicon')
 
 safe_nltk_download()
+
+
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 app = Flask(__name__)
 
