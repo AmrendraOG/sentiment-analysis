@@ -71,7 +71,7 @@ def analyze():
     data = request.get_json()
     text = data.get("text", "")
     if not text.strip():
-        return jsonify({"error", "Text is empty"}), 400
+        return jsonify({"error": "Text is empty"}), 400
     
     filtered_words, emotions, cleaned_text = analyze_text(text)
     sentiment, score = get_sentiment(cleaned_text)
