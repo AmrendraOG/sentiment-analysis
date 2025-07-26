@@ -7,7 +7,6 @@ function analyzeText() {
         document.getElementById("result").innerText = "Please enter some text.";
         return
     }
-
     fetch("https://sentiment-analysis-dyxp.onrender.com/analyze", {
         method: "POST",
         headers: {
@@ -23,8 +22,8 @@ function analyzeText() {
             }
 
             let resultHTML = `
-    <h3>Sentiment: ${data.sentiment}</h3>
-    <p>Score: ${data.score.toFixed(2)}</p>
+    <h3>Your text is:</h3>
+    <p>${data.sentiment}</p>
 `;
 
             document.getElementById("result").innerHTML = resultHTML;

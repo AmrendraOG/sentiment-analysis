@@ -5,17 +5,19 @@
 }
 
 body {
-    background: lawngreen;
+    background: linear-gradient(360deg, #E6F2FF, #B8E1DD);
 
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     height: 100vh;
     padding: 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .main {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,8 +26,16 @@ body {
 }
 
 .title {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
+}
+
+h3 {
+    margin-bottom: 1rem;
+}
+
+footer {
+    font-size: 0.5rem;
 }
 
 #inputText {
@@ -34,10 +44,15 @@ body {
     height: 150px;
     padding: 1rem;
     margin-bottom: 2rem;
-    border: 1px solid green;
+    border: 1px solid #5D576B;
     font-size: 1rem;
     border-radius: 10px;
     resize: none;
+}
+
+#inputText:focus {
+    outline: none;
+    border: 1px solid #015c68;
 }
 
 #analyzeBtn {
@@ -45,7 +60,7 @@ body {
     font-size: 1rem;
     margin-bottom: 2rem;
     border-radius: 10px;
-    background: linear-gradient(135deg, #1ba303ed, #199720);
+    background: linear-gradient(135deg, #2E4057, #3A506B);
     color: white;
     border: none;
     font-weight: bold;
@@ -63,5 +78,5 @@ body {
 }
 
 #result {
-    font-size: 2rem;
+    min-height: 100px;
 }

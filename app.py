@@ -33,12 +33,10 @@ def analyze_text(text, emotion_file='emotions.txt'):
 
 def get_sentiment(text):
     score = SentimentIntensityAnalyzer().polarity_scores(text)
-    if score['neg'] > score['pos']:
-        return "Negative 😔", score['neg']
-    elif score['pos'] > score['neg']:
-        return "Positive 😀", score['pos']
-    else:
-        return "Neutral 😐", score['neu']
+    pos = round(score['pos'] * 100, 2)
+    neg = round(score['neg'] * 100, 2)
+    neu = round(score['neu'] * 100, 2)
+    return f"{pos}% Positive 😀<br>{neg}% Negative 😔<br>{neu}% Neutral 😐"
 
 
 @app.route('/')
@@ -54,12 +52,11 @@ def analyze():
         return jsonify({"error": "Text is empty"}), 400
     
     filtered_words, emotions, cleaned_text = analyze_text(text)
-    sentiment, score = get_sentiment(cleaned_text)
+    sentiment = get_sentiment(cleaned_text)
     emotion_count = dict(Counter(emotions))
 
     return jsonify({
         "sentiment": sentiment,
-        "score": score,
         "emotions": emotion_count
     })
 
