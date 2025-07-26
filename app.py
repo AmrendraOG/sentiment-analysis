@@ -2,6 +2,11 @@ import string
 from flask import Flask, request, jsonify, render_template
 from collections import Counter
 import nltk
+import os
+
+nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
+
+nltk.data.path.append(nltk_data_path)
 
 def safe_nltk_download():
     try:
