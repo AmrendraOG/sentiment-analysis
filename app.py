@@ -12,17 +12,17 @@ def safe_nltk_download():
     try:
         nltk.data.find('tokenizers/punkt')
     except LookupError:
-        nltk.download('punkt')
+        nltk.download('punkt', download_dir=nltk_data_path)
 
     try:
         nltk.data.find('corpora/stopwords')
     except LookupError:
-        nltk.download('stopwords')
+        nltk.download('stopwords', download_dir=nltk_data_path)
 
     try:
         nltk.data.find('sentiment/vader_lexicon')
     except LookupError:
-        nltk.download('vader_lexicon')
+        nltk.download('vader_lexicon', download_dir=nltk_data_path)
 
 safe_nltk_download()
 
