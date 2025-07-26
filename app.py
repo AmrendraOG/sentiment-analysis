@@ -5,27 +5,7 @@ import nltk
 import os
 
 nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
-
 nltk.data.path.append(nltk_data_path)
-
-def safe_nltk_download():
-    try:
-        nltk.data.find('tokenizers/punkt')
-    except LookupError:
-        nltk.download('punkt', download_dir=nltk_data_path)
-
-    try:
-        nltk.data.find('corpora/stopwords')
-    except LookupError:
-        nltk.download('stopwords', download_dir=nltk_data_path)
-
-    try:
-        nltk.data.find('sentiment/vader_lexicon')
-    except LookupError:
-        nltk.download('vader_lexicon', download_dir=nltk_data_path)
-
-safe_nltk_download()
-
 
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
